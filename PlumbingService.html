@@ -1,0 +1,88 @@
+{% extends "loginnavbar.html" %}
+
+
+
+{%  block content %}
+
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+
+</style>
+
+<h2 style="text-align:center">Servies</h2>
+
+<div class="card">
+  <img src="/static/basinrepair.jpeg" alt="basinrepair" style="width:100%">
+  <h1>Sink and Basin </h1>
+  <p>Fixing/Cleaing</p><!--add details about the service -->
+  <p class="price">Average Cost $500- $1500</p>
+  <p><a href="{{ url_for ('AppliancesService')}}"><button>Book a service </button></p></a>
+  <input type="hidden" name = "servicecategorytag" value= "Plumbing"/>
+  <input type="hidden" name = "servicetypetag" value= "Sinkandbasin"/>
+</div>
+
+<div class="card">
+    <img src="/static/bathfitting.jpeg" alt="bathfitting" style="width:100%">
+    <h1>Bath Fitting</h1>
+    <p>Fixing/Cleaing </p><!--add details about the service -->
+    <p class="price">Average Cost $400 - $500</p>
+    <p><a href="{{ url_for ('ElectricalService')}}"><button>Book a service </button></p></a>
+    <input type="hidden" name = "servicecategorytag" value= "Plumbing"/>
+    <input type="hidden" name = "servicetypetag" value= "bathfitting"/>
+</div>
+
+<div class="card">
+    <img src="/static/piperepair.jpeg" alt="piperepair" style="width:100%">
+    <h1>Water Pipe</h1>
+    <p>Fixing/Cleaing</p><!--add details about the service -->
+    <p class="price">Average Cost $500 -  $10000</p>
+    <p><a href="{{ url_for ('PlumbingService')}}"><button>Book a service </button></p></a>
+    <input type="hidden" name = "servicecategorytag" value= "Plumbing"/>
+    <input type="hidden" name = "servicetypetag" value= "waterpipe"/>
+</div>
+
+<div class="card">
+    <img src="/static/tankrepair.jpeg" alt="tankrepair" style="width:100%">
+    <h1>Water Tank </h1>
+    <p>Fixing/Cleaing</p><!--add details about the service -->
+    <p class="price">Average Cost $500 - $1000</p>
+    <p><a href="{{ url_for ('HomeCleaningService')}}"><button>Book a service </button></p></a>
+    <input type="hidden" name = "servicecategorytag" value= "Plumbing"/>
+    <input type="hidden" name = "servicetypetag" value= "watertank"/>
+</div>
+
+<div class="card button">
+    <button type="button" onclick="window.history.back()" class="cancelbtn">Back</button>
+</div>
+
+{% endblock %}

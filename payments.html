@@ -1,0 +1,313 @@
+{% extends "loginnavbar.html" %}
+
+{% block content %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> 
+<style>
+.menu-nav {
+       
+        display: flex;
+        justify-content: space-between;
+      }
+      
+      .menu-item {
+        color: #FCC;
+        padding: 3px;
+      }
+      
+      .three-dots:after {
+        cursor: pointer;
+        color: #444;
+        content: '\2807';
+        font-size: 20px;
+        padding: 0 5px;
+      }
+      
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      
+      a div {
+        padding: 2px;
+      }
+      
+      .dropdown {
+        position: absolute;
+        right: 10px;
+        background-color: #66D;
+        
+        outline: none;
+        opacity: 0;
+        z-index: -1;
+        max-height: 0;
+        transition: opacity 0.1s, z-index 0.1s, max-height: 5s;
+      }
+      
+      .dropdown-container:focus {
+        outline: none;
+      }
+      
+      .dropdown-container:focus .dropdown {
+        opacity: 1;
+        z-index: 100;
+        max-height: 100vh;
+        transition: opacity 0.2s, z-index 0.2s, max-height: 0.2s;
+      }  
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #111;
+}
+
+.topnav a {
+  float: left;
+  color: #f1f1f1f1;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #351111;
+  color: white;
+}
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+input[type=text] {
+  width: 120px;
+  box-sizing: border-box;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: rgb(255, 255, 255);
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+
+.search-button{
+    /* Search Button detailing */
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+.search-button button:hover {
+  opacity: 0.7;
+}
+
+
+
+input[type=text]:focus {
+  width: 100%;
+}
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: black;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: white;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+</style>
+
+
+<div class="row">
+  <div class="col-75">
+    <div class="container"> 
+      <form name = "myform" action="/review_and_ratings" method="POST" onsubmit="return validateForm();" required>
+      
+        
+
+          <div class="col-50">
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Enter CardHolder Name </label>
+            <input type="text" id="cname" name="card_holder_name" placeholder="Enter Full Name" required>
+            <label for="cphone">Enter Phone Number</label>
+            <input type="text" id="cphone" name="phone_number" placeholder="Enter Phone Number" required>
+            <label for="cphone">Enter Email </label>
+            <input type="text" id="cemail" name="email" placeholder="Enter email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter email address in correct format">
+
+            <label for="ccnum">Enter card number</label>
+            <input type="text" id="ccnum" name="card_number" placeholder="xxxx-xxxx-xxxx-xxxx" required
+            pattern="^\d{1,16}$" title="Card number cannot be greater than 16 digits">
+            <label for="expmonth">Exp Month</label>
+            <input type="text" id="expmonth" name="exp_month" placeholder="Enter Expiry Month" required pattern="^\d{1,2}$" title="Please enter in MM format">
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Exp Year</label>
+                <input type="text" id="expyear" name="exp_year" placeholder="Enter Expire Year"
+                >
+              </div>
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="password" id="cvv" name="cvv" placeholder="xxx" required pattern="^\d{1,3}$" title="Cvv cannot be greater than 3 digits" >
+                <input type="hidden" name="vendor_name" value="{{ vendor_name }}" />
+                <input type="hidden" name="service_type" value="{{ service_type }}" />
+              </div>
+            </div>
+          </div>
+          
+        <div>
+        <label>
+          <input type="checkbox"  id="communication" name="communication"> Do you want to receive communication?
+        </label>
+        <input type="submit" value="Continue to Payment" class="btn">
+      </form>
+    </div>
+  </div>
+
+  <script type= "text/javascript"> 
+function validateForm() {
+  // var x = document.forms["myform"]["cvv"].value;
+  var x = document.getElementById('cvv').value.length;
+  print(x);
+
+  var y = document.getElementById("card_number").value.length;
+  print(y);
+  if (x>3) {
+    alert("cvv shouldn't be greater than 3");
+    return false;
+  }
+  if(y>16) {
+    alert("card number shouldn't be greater than 16");
+    return false;
+  }
+}
+
+</script>
+</div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+
+ 
+{% endblock %}

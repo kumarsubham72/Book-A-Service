@@ -1,0 +1,87 @@
+{% extends "loginnavbar.html" %}
+
+
+
+{%  block content %}
+
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+</style>
+
+<h2 style="text-align:center">Servies</h2>
+
+<div class="card">
+  <img src="/static/basiccleaing.jpeg" alt="basiccleaing" style="width:100%">
+  <h1>Basic Cleaning </h1>
+  <p>Floor and Furniture</p>
+  <p class="price">Average Cost $500</p>
+  <p><a href="{{ url_for ('AppliancesService')}}"><button>Book a service </button></p></a>
+  <input type="hidden" name = "servicecategorytag" value= "HomeCleaning"/>
+  <input type="hidden" name = "servicetypetag" value= "basiccleaing"/>
+</div>
+
+<div class="card">
+    <img src="/static/classiccleaning.jpeg" alt="classiccleaning" style="width:100%">
+    <h1>Classic Cleaning</h1>
+    <p>Basic Cleaning + Washroom </p>
+    <p class="price">$500 per Washroom</p>
+    <p><a href="{{ url_for ('ElectricalService')}}"><button>Book a service </button></p></a>
+    <input type="hidden" name = "servicecategorytag" value= "HomeCleaning"/>
+    <input type="hidden" name = "servicetypetag" value= "Classinccleaning"/>
+</div>
+
+<div class="card">
+    <img src="/static/premiunmcleaning.jpeg" alt="premiunmcleaning" style="width:100%">
+    <h1>Preminum Cleanig </h1>
+    <p>Classic Cleaning  + Windows</p>
+    <p class="price">$1500</p>
+    <p><a href="{{ url_for ('PlumbingService')}}"><button>Book a service </button></p></a>
+    <input type="hidden" name = "servicecategorytag" value= "HomeCleaning"/>
+    <input type="hidden" name = "servicetypetag" value= "premiunmcleaning"/>
+</div>
+
+<div class="card">
+    <img src="/static/platinumcleaing.jpeg" alt="platinumcleaing" style="width:100%">
+    <h1>Platinum Cleaning </h1>
+    <p>Preminum Cleaning + Outdoors</p>
+    <p class="price">Average Cost $1500</p>
+    <p><a href="{{ url_for ('HomeCleaningService')}}"><button>Book a service </button></p></a>
+    <input type="hidden" name = "servicecategorytag" value= "HomeCleaning"/>
+    <input type="hidden" name = "servicetypetag" value= "platinumcleaing"/>
+</div>
+
+<div class="card button">
+    <button type="button" onclick="window.history.back()" class="cancelbtn">Back</button>
+</div>
+
+{% endblock %}

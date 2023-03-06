@@ -1,0 +1,149 @@
+{% extends "loginnavbar.html" %}
+
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #111;
+}
+
+.topnav a {
+  float: left;
+  color: #f1f1f1f1;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #351111;
+  color: white;
+}
+
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+
+
+<div class="about-section">
+  <h1>About Us Page</h1>
+  <p>The aim of this project is to build a website that will help connecting customers directly to vendors providing different categories of services. In today’s era, it has become difficult for people in need of service to connect to vendors due to their busy schedule. Our websites provide a simple solution to the above problem. Just with few clicks of a button customers can get the service they need. This will also help the vendors to connect to customers easily. Our business profit would be 20 percent of the total amount paid for the service.</p>
+  <p>We will be developing a website application to help users initiate a “service request” for their home or small business. This will help users (i.e customers that require service) to be put in contact with service providers. We will be making money by collecting commission from each service request fulfilled by the service provider. The categories of services which customer can choose are: Appliances, Plumbing, Electrical, Home Cleaning and Pest Control. We have made it easier for the customer to place service order directly without even need to login. We hope that our website will provide an easy medium to connect the customers needing of services directly to the vendor, which in turn will save time and eradicate over price charged by other vendors.</p>
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      
+      <div class="container">
+        <h2>Subham Kumar</h2>
+        <p class="title">Developer</p>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      
+      <div class="container">
+        <h2>Abhyudai Singh</h2>
+        <p class="title">Developer</p>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+     
+      <div class="container">
+        <h2>Saalini Lanka</h2>
+        <p class="title">Developer</p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4 style="text-align:center"><a href="https://prezi.com/view/FdyWYn3Jz52x1G84doZd/">Team 9 Presentation</a></h4>
+
+<br>
+<br>
+{% endblock %}
+  
+  

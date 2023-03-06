@@ -1,0 +1,84 @@
+{% extends "loginnavbar.html" %}
+
+
+
+{%  block content %}
+
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+</style>
+
+<h2 style="text-align:center">Product Card</h2>
+
+<div class="card">
+  <img src="/static/accleaing.jpeg" alt="accleaing" style="width:100%">
+  <h1>AC</h1>
+  <p>Fixing/Cleaing</p><!--add details about the service -->
+  <p class="price">Average Cost $100 - $500</p>
+  <p><a href="{{ url_for ('AppliancesService')}}"><button>Book a service </button></p></a>
+  <input type="hidden" name = "servicecategorytag" value= "Electrical"/>
+  <input type="hidden" name = "servicetypetag" value= "AC"/>
+</div>
+
+<div class="card">
+    <img src="/static/fanfix.jpeg" alt="fanfix" style="width:100%">
+    <h1>FAN</h1>
+    <p>Fixing/Cleaing </p><!--add details about the service -->
+    <p class="price">Average Cost $100 - $500</p>
+    <p><a href="{{ url_for ('ElectricalService')}}"><button>Book a service </button></p></a>
+    <input type="hidden" name = "servicecategorytag" value= "Electrical"/>
+    <input type="hidden" name = "servicetypetag" value= "FAN"/>
+</div>
+
+<div class="card">
+    <img src="/static/socketfix.jpg" alt="socketfix" style="width:100%">
+    <h1>SOCKET</h1>
+    <p>Fixing/Cleaing/wiring</p><!--add details about the service -->
+    <p class="price">Average Cost $100 - $350</p>
+    <p><a href="{{ url_for ('PlumbingService')}}"><button>Book a service </button></p></a>
+    <input type="hidden" name = "servicecategorytag" value= "Electrical"/>
+    <input type="hidden" name = "servicetypetag" value= "Sicket"/>
+</div>
+
+<div class="card">
+    <img src="/static/lightfix.jpeg" alt="lightfix" style="width:100%">
+    <h1>LIGHT</h1>
+    <p>Fixing/Cleaing/wiring</p><!--add details about the service -->
+    <p class="price">Average Cost $20 - $200</p>
+    <p><a href="{{ url_for ('HomeCleaningService')}}"><button>Book a service </button></p></a>
+    <input type="hidden" name = "servicecategorytag" value= "Electrical"/>
+    <input type="hidden" name = "servicetypetag" value= "Light"/>
+</div>
+
+<div class="card button">
+  <button type="button" onclick="window.history.back()" class="cancelbtn">Back</button>
+</div>
+
+{% endblock %}

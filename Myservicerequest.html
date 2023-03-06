@@ -1,0 +1,118 @@
+{% extends "loginnavbar.html"%}
+
+
+
+{%  block content %}
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+
+    .container {
+      padding: 2rem 0rem;
+    }
+    
+    h4 {
+      margin: 2rem 0rem 1rem;
+    }
+
+
+    table{
+      border-collapse: collapse;
+    }
+
+    th,td {
+      border: 1px solid #dddddd;
+      padding: 10px 20px;
+      font-size: 14px;
+      height: 80px;
+      width: 160px;
+      text-align: center;
+      vertical-align: middle;
+    }  
+    
+</style>
+
+<body>
+        <table id = "table" class="table table-hover table-bordered table-sm">
+            <thead>
+            <tr>
+                <th> Email </th>
+                <th> Name </th>
+                <th> Service Category </th>
+                <th> Service Type </th>
+                <th> Price </th>
+                <th> Status </th>
+                <th> useremail </th>
+                <th> SR </th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for row in servicerequest_details %}
+            <tr>
+                    {% for cell in row %}
+                        <td>{{cell}}</td>
+                    {% endfor %}
+            </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+    <script>
+        var table = document.getElementById('table'),rIndex;
+        for (var i = 0; i < table.rows.length; i++)
+        {
+          table.rows[i].onclick= function()
+          {
+            rIndex = this.rowIndex;
+            document.getElementById("Email").value = this.cells[0].innerHTML;
+            document.getElementById("Name").value = this.cells[1].innerHTML;
+            document.getElementById("ServiceCategory").value = this.cells[2].innerHTML;
+            document.getElementById("servicetype").value = this.cells[3].innerHTML;
+            document.getElementById("Price").value = this.cells[4].innerHTML;
+            document.getElementById("Status").value = this.cells[5].innerHTML;
+            document.getElementById("Useremail").value = this.cells[6].innerHTML;
+            document.getElementById("SR").value = this.cells[7].innerHTML;
+          }
+        }
+    </script>  
+    <form action="/ordersummary" method = "post">
+        <div class ="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Email" id="Email" name="Email"> 
+            </div>    
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Name" id="Name" name="Name">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Service Category" id="ServiceCategory" name="ServiceCategory">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Service Type" id="servicetype" name="servicetype">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Price" id="Price" name="Price">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Status" id="Status" name="Status">
+            </div> 
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Useremail" id="Useremail" name="Useremail">
+            </div> 
+            <div class="col">
+                <input type="text" class="form-control" placeholder="SR" id="SR" name="SR">
+            </div> 
+            <div class="col">
+              <button type="submit" class="btn btn-success">Payment </button>
+            </div>   
+        </div>
+    </form>
+   
+  
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+{% endblock %}

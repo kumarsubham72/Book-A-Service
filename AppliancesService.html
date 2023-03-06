@@ -1,0 +1,89 @@
+{% extends "loginnavbar.html" %}
+
+
+
+{%  block content %}
+
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+</style>
+
+<h2 style="text-align:center">Servies</h2>
+
+<div class="card">
+  <img src="/static/laptpfix.jpeg" alt="laptpfix" style="width:100%">
+  <h1>Laptop Repair </h1>
+  <p>Repair only</p><!--add details about the service -->
+  <p class="price">Average Cost $100 - $50000</p>
+  <p><a href="{{ url_for ('Bookservice')}}"><button>Book a service </button></p></a>
+  <input type="hidden" name = "servicecategorytag" value= "Appliances"/>
+  <input type="hidden" name = "servicetypetag" value= "Laptoprepair"/>
+</div>
+
+<form action="/Bookservice" method = "post">
+  <div class="card">
+      <img src="/static/chimneyclean.jpeg" alt="chimneyclean" style="width:100%">
+      <h1>Chimney </h1>
+      <p>Fixing/Cleaing/Repairing </p><!--add details about the service -->
+      <p class="price">Average Cost $10 - $1000</p>
+      <p><button type= "submit" id= "Bookservice ">Book a Service </button></p> 
+      <input type="hidden" name = "servicecategorytag" value= "Appliances"/>
+      <input type="hidden" name = "servicetypetag" value= "Chimney"/>
+  </div>
+</form> 
+
+<div class="card">
+    <img src="/static/microwavefix.jpeg" alt="microwavefix" style="width:100%">
+    <h1>Microwave </h1>
+    <p>Fixing/Cleaing/Repairing</p><!--add details about the service -->
+    <p class="price">Average Cost $50 - $100</p>
+    <p><a href="{{ url_for ('Bookservice')}}"><button>Book a service </button></p></a>
+    <input type="hidden" name = "servicecategorytag" value= "Appliances"/>
+    <input type="hidden" name = "servicetypetag" value= "Microwave"/>
+</div>
+
+<div class="card">
+    <img src="/static/fridgefix.jpeg" alt="fridgefix" style="width:100%">
+    <h1>Fridge</h1>
+    <p>Fixing/Cleaing/Repairing</p><!--add details about the service -->
+    <p class="price">Average Cost $100 - $5000</p>
+    <p><a href="{{ url_for ('Bookservice')}}"><button>Book a service </button></p></a>
+    <input type="hidden" name = "servicecategorytag" value= "Appliances"/>
+    <input type="hidden" name = "servicetypetag" value= "Fridge"/>
+</div>
+
+<div class="card button">
+    <button type="button" onclick="window.history.back()" class="cancelbtn">Back</button>
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "loginnavbar.html" %}
+
+{% block content %}
+
+<style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+      font-family: arial;
+    }
+    
+    .price {
+      color: grey;
+      font-size: 22px;
+    }
+    
+    .card button {
+      border: none;
+      outline: 0;
+      padding: 12px;
+      color: white;
+      background-color: #000;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
+    
+    .card button:hover {
+      opacity: 0.7;
+    }
+    </style>
+    
+    <h2 style="text-align:center">Service Categories</h2>
+    
+    <div class="card">
+      <img src="/static/appliances.jpeg" alt="Appliances" style="width:100%">
+      <h1>APPLIANCES</h1>
+      <p>Taking care of all your appliances</p><!--add details about the service -->
+      <p><a href="{{ url_for ('AppliancesService')}}"><button>Book a service </button></p></a>
+    </div>
+    
+    <div class="card">
+        <img src="/static/electrical.jpeg" alt="Appliances" style="width:100%">
+        <h1>ELECTRICAL</h1>
+        <p>Taking care of all your Electrical </p><!--add details about the service -->
+        <p><a href="{{ url_for ('ElectricalService')}}"><button>Book a service </button></p></a>
+    </div>
+    
+    <div class="card">
+        <img src="/static/plumbing.jpeg" alt="Appliances" style="width:100%">
+        <h1>PLUMBING</h1>
+        <p>Taking care of all your Plumbing issues</p><!--add details about the service -->
+        <p><a href="{{ url_for ('PlumbingService')}}"><button>Book a service </button></p></a>
+    </div>
+    
+    <div class="card">
+        <img src="/static/home cleaning.jpeg" alt="Appliances" style="width:100%">
+        <h1>HOME CLEANING</h1>
+        <p>Taking care of all your Home Cleaing</p><!--add details about the service -->
+        <p><a href="{{ url_for ('HomeCleaningService')}}"><button>Book a service </button></p></a>
+    </div>
+    
+    <div class="card">
+        <img src="/static/pestcontrol.jpeg" alt="Appliances" style="width:100%">
+        <h1>PEST CONTROL</h1>
+        <p>Taking care of all your Pesr Control issues</p><!--add details about the service -->
+        <p><a href="{{ url_for ('PestControlService')}}"><button>Book a service </button></p></a>
+    </div>
+    
+    <hr>
+    
+    <footer>
+      <p><a href="{{ url_for ('VendorRegister')}}">For Business Please Contact Here </a></p>
+      <br>
+      <p><a href="{{ url_for ('VendorLogin')}}">If Already Registered Please Click Here </a></p>
+    </footer>
+    
+{% endblock %}
